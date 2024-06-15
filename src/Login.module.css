@@ -1,0 +1,61 @@
+/* Login.module.css */
+
+.formContainer {
+  background-color: black;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.formContainer h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  text-transform: initial !important;
+}
+
+.formContainer input[type="text"],
+.formContainer input[type="email"],
+.formContainer input[type="password"],
+.formContainer select,
+.formContainer input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.formContainer button {
+  background-color: #49A078;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.formContainer p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.formContainer p a {
+  color: #37e3f3;
+  text-decoration: none;
+}
+
+.formContainer p a:hover {
+  text-decoration: underline;
+}
+
+a {
+  color: bisque;
+}
+
+h3 {
+  color: white;
+}
