@@ -93,7 +93,7 @@ function Home() {
         // Set background color based on event type
         const dayElement = document.getElementsByClassName(`.${event.year}-${event.month}-${event.date}`)[0];
         if (dayElement) {
-          dayElement.style.backgroundColor = event.eventType === 'exam' ? 'red' : 'gold';
+          dayElement.style.backgroundColor = event.eventType === 'exam' ? 'crimson' : 'orange';
         }
       });
     }else{
@@ -172,8 +172,8 @@ function Home() {
                 {c[currentMonth].map((week, weekIndex) => (
                   <React.Fragment key={weekIndex}>
                     {week.map((day, dayIndex) => (
-                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{backgroundColor : events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && user.course.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventType==="exam" ? 'red' : 'gold' : ''}}>
-                        <h5 className={`title-${currentYear}-${currentMonth}-${day}`}>{day !== 0 ? day : ''} { events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && user.course.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventTitle.replace(/#/g, "'").replace(/~/g, '"') : ''}</h5>
+                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{backgroundColor : events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && user.course.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventType==="exam" ? 'crimson' : 'orange' : ''}}>
+                        <h5  className={`title-${currentYear}-${currentMonth}-${day}`}>{day !== 0 ? day : ''} { events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && user.course.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventTitle.replace(/#/g, "'").replace(/~/g, '"') : ''}</h5>
                       </div>
                     ))}
                   </React.Fragment>

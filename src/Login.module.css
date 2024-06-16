@@ -1,50 +1,70 @@
 /* Login.module.css */
 
 .formContainer {
-  background-color: black;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  background-color: rgba(44, 43, 43, 0.9); 
+  border-radius: 10px;
+  padding: 60px; 
+  border: 2px solid #333;
+  box-shadow: 0.6px 4px 8px rgba(102, 94, 94, 0.6);
+  max-width: 400px;
+  margin: auto;
+  color: #f0f0f0; 
+  animation: fade-in 1s ease-out 1;
 }
 
 .formContainer h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: white;
-  text-transform: initial !important;
+  color: #f0f0f0; 
+  text-transform: uppercase;
+  font-weight: 450;
+  letter-spacing: 2px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .formContainer input[type="text"],
 .formContainer input[type="email"],
 .formContainer input[type="password"],
-.formContainer select,
-.formContainer input[type="submit"] {
+.formContainer select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 15px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   border-radius: 3px;
+  background-color: #222;
+  color: #f0f0f0;
 }
 
+.formContainer input[type="submit"],
 .formContainer button {
   background-color: #49A078;
-  color: white;
+  color: #fff;
   border: none;
   cursor: pointer;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+}
+
+.formContainer input[type="submit"]:hover,
+.formContainer button:hover {
+  background-color: #3a7f64;
+  color: black;
+  font-weight: 600;
 }
 
 .formContainer p {
   margin-top: 15px;
   text-align: center;
+  font-size: 0.9em;
+  color: #ccc;
 }
 
 .formContainer p a {
-  color: #37e3f3;
+  color: #49A078;
   text-decoration: none;
 }
 
@@ -53,9 +73,17 @@
 }
 
 a {
-  color: bisque;
+  color: #37e3f3;
 }
 
 h3 {
-  color: white;
+  color: #f0f0f0;
+}
+
+
+
+@keyframes fade-in{
+  0%{opacity: 0;}
+  50%{opacity: 0.5;}
+  100%{opacity: 1;}
 }

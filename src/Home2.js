@@ -96,7 +96,7 @@ function Home2() {
         // Set background color based on event type
         const dayElement = document.getElementsByClassName(`.${event.year}-${event.month}-${event.date}`)[0];
         if (dayElement) {
-          dayElement.style.backgroundColor = event.eventType === 'exam' ? 'red' : 'gold';
+          dayElement.style.backgroundColor = event.eventType === 'exam' ? 'crimson' : 'orange';
         }
       });
     }else{
@@ -184,7 +184,7 @@ function Home2() {
                 {c[currentMonth].map((week, weekIndex) => (
                   <React.Fragment key={weekIndex}>
                     {week.map((day, dayIndex) => (
-                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{backgroundColor : events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && subs.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventType==="exam" ? 'red' : 'gold' : ''}}>
+                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{backgroundColor : events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && subs.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventType==="exam" ? 'crimson' : 'orange' : ''}}>
                         <h5 className={`title-${currentYear}-${currentMonth}-${day}`}>{day !== 0 ? day : ''} { events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && subs.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventTitle.replace(/#/g, "'").replace(/~/g, '"') : ''}</h5>
                       </div>
                     ))}
@@ -246,7 +246,7 @@ function Home2() {
           </div>
           {user && user.userType === "staff" && (
             <div onClick={()=>{navigate("/edit")}} className="form2">
-              <div className="edit-btn">
+              <div className="edit-btn2">
                 <a href="/edit">
                   <div><b>Edit</b></div>
                   <div className="edit"></div>
