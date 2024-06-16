@@ -1,21 +1,57 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-image: url("../public/background.png");
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     background: linear-gradient(135deg, #0d0d0d, #1a1a1a 20%, #262626 40%, #333333 60%, #404040 80%, #1a1a1a 100%);
+     background-size: 200% 200%;
+     overflow: hidden;
+     position: relative;
+     background-position: 50% 50%;
+     animation: moveBackground 120s linear infinite;
+     overflow: hidden;
+     position: relative;
+     background-position: 50% 50%;
+
+ }
+
+ body::before,
+ body::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     background: inherit;
+     z-index: -1;
+     opacity: 0.7;
+ }
+
+ body::before {
+     clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+ }
+
+ body::after {
+     clip-path: polygon(0 25%, 100% 25%, 75% 75%, 25% 75%);
+ }
+ @keyframes moveBackground {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
-#root{
-  width:100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+ #root {
+     width: 100%;
+     height: 100%;
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }

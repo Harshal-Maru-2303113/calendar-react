@@ -47,7 +47,9 @@
 }
 
 .form-container input[type="submit"]:hover {
-    background-color: #28c9de;
+    background-color: #098f59;
+    color: black;
+    font-weight: 600;
 }
 
 footer {

@@ -38,8 +38,9 @@ h1 {
 
 .profile-info span {
     display: inline-block;
+    font-weight: 500;
     padding: 5px 10px;
-    background-color: #49A078;
+    background-color: #5e5e5e;
     color: #fff;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -70,22 +71,6 @@ h1 {
     background-color: #c82333;
 }
 
-.edit-btn {
-    background-color: #49A078;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.edit-btn:hover {
-    background-color: #0056b3;
-}
 .edit-save-btn{
     display: block;
     margin: auto;
