@@ -174,8 +174,8 @@ function Home2() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/home">Calendar</a>
+              <li className="nav-item" onClick={() => { navigate('/home/staff') }}>
+                <a className="nav-link active" aria-current="page" href='/home/staff'>Calendar</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/about">About</a>
