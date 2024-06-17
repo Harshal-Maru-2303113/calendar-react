@@ -267,6 +267,39 @@ th {
     flex-direction: row;
     padding: 10px;
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buffer{
+    font-size: xx-large;
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+.buffer span{
+    width: 25px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(calc(var(--n)*24deg));
+    transform-origin:  0 100px;
+    animation: dot 1.5s ease-in infinite;
+    animation-delay: calc(var(--n)*0.05s);
+}
+
+@keyframes dot {
+    0%,50%{
+        background-color: #000000;
+    }
+    50.01%,100%{
+        background-color: #ffffff;
+    }
+}
 
 
 
