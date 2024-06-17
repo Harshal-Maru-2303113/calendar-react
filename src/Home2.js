@@ -15,28 +15,28 @@ function Home2() {
 
   useEffect(() => {
     const fetchData = async () => {
-        try {
-            const res = await fetch("http://localhost:8000/home", {
-                credentials: 'include', // Include credentials in the request
-            });
+      try {
+        const res = await fetch("http://localhost:8000/home", {
+          credentials: 'include', // Include credentials in the request
+        });
 
-            if (!res.ok) {
-                // Handle HTTP errors
-                throw new Error('Network response was not ok');
-            }
-
-            const response = await res.json();
-
-            // Sort the data based on the 'id' property before setting the state
-            const sortedData = response.data.sort((a, b) => a.id - b.id);
-            setData(sortedData);
-            setEvents(JSON.parse(response.events));
-            setUser(response.user);
-            setSubs(response.depSubs);
-
-        } catch (error) {
-            console.error("Error fetching data:", error);
+        if (!res.ok) {
+          // Handle HTTP errors
+          throw new Error('Network response was not ok');
         }
+
+        const response = await res.json();
+
+        // Sort the data based on the 'id' property before setting the state
+        const sortedData = response.data.sort((a, b) => a.id - b.id);
+        setData(sortedData);
+        setEvents(JSON.parse(response.events));
+        setUser(response.user);
+        setSubs(response.depSubs);
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
 
     fetchData();
@@ -51,7 +51,7 @@ function Home2() {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    if(document.getElementById('clock')){
+    if (document.getElementById('clock')) {
       document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
     }
   };
@@ -99,18 +99,18 @@ function Home2() {
           dayElement.style.backgroundColor = event.eventType === 'exam' ? 'crimson' : 'orange';
         }
       });
-    }else{
+    } else {
       console.log("No array")
     }
   }, [events]);
 
-  const deleteEvent = async (e)=> {
+  const deleteEvent = async (e) => {
 
     e.preventDefault(); // Prevent the default form submission behavior
-    const eventId = e.target.value 
+    const eventId = e.target.value
     const url = 'http://localhost:8000/home';
-    const payload = { 
-      delete:eventId
+    const payload = {
+      delete: eventId
     };
 
     const response = await fetch(url, {
@@ -136,11 +136,30 @@ function Home2() {
     }
   }, [user, navigate]);
 
-  
+
   if (user && user.userType !== "staff") {
     return null;
-  }else if(user===null){
-    return(<div>Loading.....</div>)
+  }
+
+  if (user == null) {
+    return (<div className='loading'>
+      <div className="buffer">
+        <span style={{ "--n": 1 }} ></span>
+        <span style={{ "--n": 2 }}></span>
+        <span style={{ "--n": 3 }}></span>
+        <span style={{ "--n": 4 }}></span>
+        <span style={{ "--n": 5 }}></span>
+        <span style={{ "--n": 6 }}></span>
+        <span style={{ "--n": 7 }}></span>
+        <span style={{ "--n": 8 }}></span>
+        <span style={{ "--n": 9 }}></span>
+        <span style={{ "--n": 10 }}></span>
+        <span style={{ "--n": 11 }}></span>
+        <span style={{ "--n": 12 }}></span>
+        <span style={{ "--n": 13 }}></span>
+        <span style={{ "--n": 14 }}></span>
+        <span style={{ "--n": 15 }}></span>
+      </div></div>)
   }
 
   return (
@@ -163,7 +182,7 @@ function Home2() {
               </li>
             </ul>
             <div className="navbar-nav">
-              <div className="nav-item" onClick={()=>{navigate('/profile')}}>
+              <div className="nav-item" onClick={() => { navigate('/profile') }}>
                 <a className="nav-link active" aria-current="page" href="/profile">Profile</a>
               </div>
             </div>
@@ -184,8 +203,8 @@ function Home2() {
                 {c[currentMonth].map((week, weekIndex) => (
                   <React.Fragment key={weekIndex}>
                     {week.map((day, dayIndex) => (
-                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{backgroundColor : events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && subs.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventType==="exam" ? 'crimson' : 'orange' : ''}}>
-                        <h5 className={`title-${currentYear}-${currentMonth}-${day}`}>{day !== 0 ? day : ''} { events.find((event)=>{ return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear && subs.find((e)=>{ return event.course===e})}) ? events.find((event)=>{return event["date"]===day && event["month"]===currentMonth && event["year"]===currentYear}).eventTitle.replace(/#/g, "'").replace(/~/g, '"') : ''}</h5>
+                      <div key={dayIndex} className={`day ${currentYear}-${currentMonth}-${day} text-truncate`} onClick={() => day !== 0 && showPopup(`popup-${currentYear}-${currentMonth}-${day}`)} style={{ backgroundColor: events.find((event) => { return event["date"] === day && event["month"] === currentMonth && event["year"] === currentYear && subs.find((e) => { return event.course === e }) }) ? events.find((event) => { return event["date"] === day && event["month"] === currentMonth && event["year"] === currentYear }).eventType === "exam" ? 'crimson' : 'orange' : '' }}>
+                        <h5 className={`title-${currentYear}-${currentMonth}-${day}`}>{day !== 0 ? day : ''} {events.find((event) => { return event["date"] === day && event["month"] === currentMonth && event["year"] === currentYear && subs.find((e) => { return event.course === e }) }) ? events.find((event) => { return event["date"] === day && event["month"] === currentMonth && event["year"] === currentYear }).eventTitle.replace(/#/g, "'").replace(/~/g, '"') : ''}</h5>
                       </div>
                     ))}
                   </React.Fragment>
@@ -194,7 +213,7 @@ function Home2() {
               {c[currentMonth].map((week, weekIndex) => (
                 <React.Fragment key={weekIndex}>
                   {week.map((day, dayIndex) => {
-                    const arr = Array.isArray(events) ? events.filter(event => event.date === day && event.month === currentMonth && event.year === currentYear && subs.find((e)=>{ return event.course===e})) : [];
+                    const arr = Array.isArray(events) ? events.filter(event => event.date === day && event.month === currentMonth && event.year === currentYear && subs.find((e) => { return event.course === e })) : [];
                     return arr.length > 0 ? (
                       <div key={dayIndex} id={`popup-${currentYear}-${currentMonth}-${day}`} className="popup">
                         <div className="popup-content">
@@ -245,7 +264,7 @@ function Home2() {
             <button onClick={nextMonth} className="down" id="down"></button>
           </div>
           {user && user.userType === "staff" && (
-            <div onClick={()=>{navigate("/edit")}} className="form2">
+            <div onClick={() => { navigate("/edit") }} className="form2">
               <div className="edit-btn2">
                 <a href="/edit">
                   <div><b>Edit</b></div>
